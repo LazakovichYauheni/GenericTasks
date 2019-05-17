@@ -1,0 +1,10 @@
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\obj\Debug\Generics.Test.csprojAssemblyReference.cache
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\obj\Debug\Generics.Test.csproj.CoreCompileInputs.cache
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\bin\Debug\Generics.Test.dll
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\bin\Debug\Generics.Test.pdb
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\bin\Debug\Generics.dll
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\bin\Debug\Generics.pdb
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\obj\Debug\Generics.Test.csproj.CopyComplete
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\obj\Debug\Generics.Test.dll
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics.Test\obj\Debug\Generics.Test.pdb

@@ -1,0 +1,6 @@
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics\obj\Debug\Generics.csprojAssemblyReference.cache
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics\obj\Debug\Generics.csproj.CoreCompileInputs.cache
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics\bin\Debug\Generics.dll
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics\bin\Debug\Generics.pdb
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics\obj\Debug\Generics.dll
+D:\aorgish-net-training-tasks-32449dfbbae5\aorgish-net-training-tasks-32449dfbbae5\02-Generics\Generics\obj\Debug\Generics.pdb
