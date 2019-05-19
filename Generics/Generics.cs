@@ -111,7 +111,6 @@ namespace Task.Generics {
             where T1 : IComparable
             where T2 : IComparable
             where T3 : IComparable
-        { if (ascending == true)
         {
             if (sortedColumn > 2)
             {
