@@ -6,7 +6,8 @@ using System.Net;
 
 namespace Task.Generics {
 
-	public static class ListConverter {
+	public static class ListConverter
+    {
 
 		private static char ListSeparator = ',';  // Separator used to separate values in string
 
@@ -30,40 +31,41 @@ namespace Task.Generics {
             return string.Join<T>(ListSeparator.ToString(), list);
 		}
 
-		/// <summary>
-		///   Converts the string respresentation to the list of items
-		/// </summary>
-		/// <typeparam name="T">required type of output items</typeparam>
-		/// <param name="list">string representation of the list</param>
-		/// <returns>
-		///   Returns the list of items from specified string
-		/// </returns>
-		/// <example>
-		///  "1,2,3,4,5" for int => {1,2,3,4,5}
-		///  "1,2,3,4,5" for char => {'1','2','3','4','5'}
-		///  "1,2,3,4,5" for string => {"1","2","3","4","5"}
-		///  "true,false" for bool => { true, false }
-		///  "Black,Blue,Cyan" for ConsoleColor => { ConsoleColor.Black, ConsoleColor.Blue, ConsoleColor.Cyan }
-		///  "1:00:00,0:00:30" for TimeSpan =>  { new TimeSpan(1, 0, 0), new TimeSpan(0, 0, 30) },
-		///  </example>
-		public static IEnumerable<T> ConvertToList<T>(this string list) {
+        /// <summary>
+        ///   Converts the string respresentation to the list of items
+        /// </summary>
+        /// <typeparam name="T">required type of output items</typeparam>
+        /// <param name="list">string representation of the list</param>
+        /// <returns>
+        ///   Returns the list of items from specified string
+        /// </returns>
+        /// <example>
+        ///  "1,2,3,4,5" for int => {1,2,3,4,5}
+        ///  "1,2,3,4,5" for char => {'1','2','3','4','5'}
+        ///  "1,2,3,4,5" for string => {"1","2","3","4","5"}
+        ///  "true,false" for bool => { true, false }
+        ///  "Black,Blue,Cyan" for ConsoleColor => { ConsoleColor.Black, ConsoleColor.Blue, ConsoleColor.Cyan }
+        ///  "1:00:00,0:00:30" for TimeSpan =>  { new TimeSpan(1, 0, 0), new TimeSpan(0, 0, 30) },
+        ///  </example>
+        public static IEnumerable<T> ConvertToList<T>(this string list)
+        {
             string str = list;
             List<T> lst = new List<T>();
             string[] StrArray;
             StrArray = str.Split(ListSeparator);
-            for(int i=0;i<StrArray.Length;i++)
-            {
-                TypeConverter convert = TypeDescriptor.GetConverter(typeof(T));
+            TypeConverter convert = TypeDescriptor.GetConverter(typeof(T));
+            for (int i = 0; i < StrArray.Length; i++)
+            {  
                 T obj = (T)convert.ConvertFromString(StrArray[i]);
                 lst.Add(obj);
             }
             return lst;
-			throw new NotImplementedException();
 		}
 
 	}
 
-	public static class ArrayExtentions {
+	public static class ArrayExtentions
+    {
 
 		/// <summary>
 		///   Swaps the one element of source array with another
@@ -110,19 +112,22 @@ namespace Task.Generics {
             where T2 : IComparable
             where T3 : IComparable
         { if (ascending == true)
-            {
-                if (sortedColumn == 0)
-                    Array.Sort(array, (a, b) => a.Item1.CompareTo(b.Item1));
-                if (sortedColumn == 1)
-                    Array.Sort(array, (a, b) => a.Item2.CompareTo(b.Item2));
-                if (sortedColumn == 2)
-                    Array.Sort(array, (a, b) => a.Item3.CompareTo(b.Item3));
-            }
-            else if (ascending == false)
-                    Array.Reverse(array);
-            
+        {
             if (sortedColumn > 2)
+            {
                 throw new IndexOutOfRangeException();
+            }
+
+            Func<Tuple<T1, T2, T3>, IComparable>[] property = new Func<Tuple<T1, T2, T3>, IComparable>[]
+            {
+                x => x.Item1,
+                x => x.Item2,
+                x => x.Item3
+            };
+
+            Func<Tuple<T1, T2, T3>, IComparable> propGetter = property[sortedColumn];
+            int ascendingValue = ascending ? 1 : -1;
+            Array.Sort(array, (x, y) => ascendingValue * propGetter(x).CompareTo(propGetter(y)));
 		}
 
 	}
@@ -134,17 +139,19 @@ namespace Task.Generics {
 	///   This code should return the same MyService object every time:
 	///   MyService singleton = Singleton<MyService>.Instance;
 	/// </example>
-	public static class Singleton<T> {
-        // TODO : Implement generic singleton class 
+	public static class Singleton<T>
+    { 
         private static readonly Lazy<T> instance = new Lazy<T>();
-		public static T Instance {
+		public static T Instance
+        {
 			get { return instance.Value; }
 		}
 	}
 
 
 
-	public static class FunctionExtentions {
+	public static class FunctionExtentions
+    {
 		/// <summary>
 		///   Tries to invoke the specified function up to 3 times if the result is unavailable 
 		/// </summary>
@@ -163,9 +170,11 @@ namespace Task.Generics {
 		///   The second attemp has the same workflow.
 		///   If the third attemp fails then this exception should be rethrow to the application.
 		/// </example>
-		public static T TimeoutSafeInvoke<T>(this Func<T> function) {
+		public static T TimeoutSafeInvoke<T>(this Func<T> function)
+        {
             int count = 1;
-            while (count < 3)
+            int NumberOfNewRequests = 3;
+            while (count < NumberOfNewRequests)
             {
                 try
                 {
@@ -205,7 +214,8 @@ namespace Task.Generics {
 		///            x=> x<10
 		///       })
 		/// </example>
-		public static Predicate<T> CombinePredicates<T>(Predicate<T>[] predicates) {
+		public static Predicate<T> CombinePredicates<T>(Predicate<T>[] predicates)
+        {
             return (local) =>
             {
                 foreach(var predicate in predicates)
@@ -215,8 +225,7 @@ namespace Task.Generics {
                 }
                 return true;
             };
-			// TODO : Implement CombinePredicates<T>
-			throw new NotImplementedException();
+
 		}
 
 	}
